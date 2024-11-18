@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica 2</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <h1>Validaciones</h1>
+    <form action="" method="post">
+        <label for="user">Usuario</label>
+        <input type="text" id="user" name="user_name" value=""><span id="user_err"> El usuario debe ser un email valido</span><br><br>
+        <label for="pass" value="">Contraseña</label>
+        <input type="password" id="pass" name="user_pass"><span id="pass_err"> La contraseña debe tener entre 6 y 8 carácteres</span><br><br>
+        <button type="submit" id="btn_enviar">Enviar</button>
+    </form>
+    <script>
+        let usuario = document.getElementById('user');
+        usuario.onblur = comprobarUser;
+
+        let contrasena = document.getElementById('pass');
+        contrasena.onblur = comprobarPass;
+
+        let err_usuario = document.getElementById('user_err');
+
+        let err_contrasena = document.getElementById('pass_err');
+
+        let enviar = document.getElementById('btn_enviar');
+        enviar.disabled = true;
+        
+        function comprobarUser (){
+            const emailRegex = /^[a-zA-Z0-9]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/;
+            if (emailRegex.test(usuario.value)) {
+                err_usuario.style.display = 'none';
+            } else {
+                enviar.disabled = true;
+                err_usuario.style.display = 'inline';
+            }
+        }
+
+        function comprobarPass (){
+            if (contrasena.value.length > 6 && contrasena.value.length < 9 ){
+                enviar.disabled = false;
+                err_contrasena.style.display = 'none';
+            } else {
+                enviar.disabled = true;
+                err_contrasena.style.display = 'inline';
+            }
+        }
+    </script>
+</body>
+
+</html>

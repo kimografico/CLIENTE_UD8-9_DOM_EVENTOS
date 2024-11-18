@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+    <style>
+        html, body{
+            width: 100%;
+            height: 100%;
+            background: lightgrey;
+            overflow: hidden
+        }
+    </style>
+</head>
+<body onmousemove="mostrarPosicion(event)">
+    <h1>Posición del ratón</h1>
+    <p id="posicion"></p>
+
+    <script>
+        function mostrarPosicion(raton) {  
+            let posicion = ('X: '+raton.clientX + '<br>Y: ' + raton.clientY);
+            document.getElementById("posicion").innerHTML = posicion;
+        }
+    </script>
+
+</body>
+</html>

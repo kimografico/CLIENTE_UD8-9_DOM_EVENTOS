@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+    <style>
+    </style>
+</head>
+<body>
+    <h1>Eliminar párrafos</h1>
+    <p>Párrafo 1</p>
+    <p>Párrafo 2</p>
+    <p>Párrafo 3</p>
+
+    <button onclick="reaparecer()">Reaparecer</button>
+
+    <script>
+        let parrafos = document.getElementsByTagName("p");
+        
+        for (let i = 0; i < parrafos.length; i++) {
+            parrafos[i].oncontextmenu = borrarParrafo;
+            parrafos[i].onclick = ocultarParrafo;
+        }
+
+        function reaparecer(){
+            for (let i = 0; i < parrafos.length; i++) {
+                parrafos[i].style.display = "block";
+            }
+        }
+
+        function ocultarParrafo(){
+            this.style.display = "none";
+        }
+
+        function borrarParrafo(){
+            this.remove();
+        }
+    </script>
+
+</body>
+</html>
